@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MD5 Hash Cracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000; /* Black background */
+            background-image: url('/static/sec.jpg'); /* Path to your background image */
+            background-size: cover;
+            background-blend-mode: grayscale; /* Apply grayscale filter */
+            text-align: center; /* Center align the content */
+            height: 100vh; /* Full height of the viewport */
+            margin: 160px;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: inline-block; /* Display as inline block to center horizontally */
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .field input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .field button {
+            margin-top: 40px;
+        }
+
+         .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 999; /* Ensure the button is on top */
+        }
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+
+        .result-container {
+            display: block;
+            margin-top: 20px;
+            color: #ddd; /* Indigo text color */
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .result-bg {
+            background-color: #000; /* Initial background color */
+            animation: blinking-animation 1s infinite; /* Apply the blinking animation */
+        }
+
+        @keyframes blinking-animation {
+            0% {
+                background-color: #000;
+            }
+            /* Start with black */
+            50% {
+                background-color: #4b0082;
+            }
+            /* Change to indigo color */
+            100% {
+                background-color: #000;
+            }
+            /* Back to black */
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('home') }}" class="home-button">Home</a>
+    <div class="container">
+        <h1 class="ui center aligned header">MD5 Hash Cracker</h1>
+        <form class="ui form" action="/hash_checker" method="post">
+            <div class="field">
+                <label>Please enter the MD5 Hash</label>
+                <input type="text" name="hash" placeholder="MD5 Hash...">
+                <br></br>
+                <button class="ui blue button" type="submit">Crack</button>
+            </div>
+        </form>
+    </div>
+    <div class="result-container"> {{ result }}</div>
+</body>
+</html>

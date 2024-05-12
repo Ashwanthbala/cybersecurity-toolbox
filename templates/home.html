@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Dashboard</title>
+    <link rel="icon" type="image/png" href="/static/delta.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #003366, #ff4d4d); /* Gradient background */
+            color: #ffffff; /* White text color */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #title {
+            font-size: 42px; /* Increase font size for title */
+            font-weight: bold;
+            color: #ffffff; /* White text color */
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1); /* Add subtle text shadow */
+            letter-spacing: 2px; /* Increase letter spacing for title */
+            text-transform: uppercase; /* Convert text to uppercase */
+        }
+
+        /* Text Effects */
+        #title::after {
+            content: ""; /* Add pseudo-element for decorative effect */
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff; /* White line color */
+            margin-top: 10px; /* Add space between title and line */
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around; /* Center the logos */
+            margin-top: 100px; /* Increase the vertical distance between the logos and the title */
+            margin-bottom: 100px; /* Add margin at the bottom */
+            gap: 300px; /* Adjust space between logos */
+        }
+
+        .top-right-image {
+            position: absolute; /* Absolute positioning for image */
+            top: 20px; /* Adjust distance from top */
+            left: 10px; /* Adjust distance from right */
+            width: 150px; /* Adjust width of the image */
+        }
+
+        .linux,
+        .windows {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Apply red color on hover */
+        .image:hover {
+            filter: brightness(90%);
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the buttons */
+            margin-top: 20px
+        }
+
+        .button {
+            padding: 10px 20px; /* Adjust padding as needed */
+            font-size: 16px; /* Adjust font size as needed */
+            background-color: #ff4d4d; /* Red background */
+            color: #ffffff; /* White text color */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff3333; /* Darker red on hover */
+        }
+
+        @media (max-width: 768px) {
+            .image {
+                width: 150px; /* Adjust image size for smaller screens */
+            }
+
+            #title {
+                font-size: 24px; /* Decrease title font size for smaller screens */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h4 id="title">Cybersecurity Toolbox</h4>
+        <div class="image-container">
+            <div class="linux">
+                <img src="/static/password.jpg" alt="Linux Logo" id="linuxLogo" class="image">
+                <div class="button-container">
+                    <button class="button" onclick="window.location.href='{{ url_for('index') }}'">Password Breach Checker</button>
+                </div>
+            </div>
+
+            <div class="windows">
+                <img src="/static/md5.jpg" alt="Windows Logo" id="windowsLogo" class="image">
+                <div class="button-container">
+                    <button class="button" onclick="window.location.href='{{ url_for('hash') }}'">MD5 Hash Cracker</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Button -->
+    <div class="button-container" style="margin-bottom: 20px;">
+        <button class="button" onclick="window.location.href='{{ url_for('contact') }}'">Contact Us</button>
+    </div>
+</body>
+
+</html>
