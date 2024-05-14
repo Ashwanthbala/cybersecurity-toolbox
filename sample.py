@@ -32,7 +32,7 @@ def submit():
         email = request.form.get("email")
         message = request.form.get("message")
         msg = f"Hi Ashwanth, \n {name} is trying to get in touch with you.Email address: {email}. \n\nMessage: {message}"
-        mail = sendmail("ashwanthbalajir@gmail.com","jnib oclw marp yhak",msg)
+        mail = sendmail("ashwanthbalajir@gmail.com","**** **** **** ****",msg)
         print(mail)
         flash("Form submitted Successfully!")
         return redirect('contact')
